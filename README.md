@@ -2,6 +2,8 @@
 
 Premium personal site built with Next.js App Router, TypeScript, Tailwind v4, and restrained Framer Motion.
 
+**Repository:** [github.com/patrickd12345/Patrick-site](https://github.com/patrickd12345/Patrick-site) (standalone; not the Bookiji inc monorepo).
+
 ## Stack
 
 - Next.js 16 (App Router)
