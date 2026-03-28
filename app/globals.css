@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #090b0e;
+  --surface-1: #11151a;
+  --surface-2: #161b22;
+  --surface-3: #1c222b;
+  --border-strong: #2a313d;
+  --border-soft: #202632;
+  --text-main: #e8edf4;
+  --text-muted: #98a2b3;
+  --accent-main: #c9a463;
+  --accent-strong: #ddba79;
+  --shadow-surface: 0 24px 60px rgba(2, 6, 12, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--text-main);
+  --color-surface: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-subtle: var(--border-soft);
+  --color-accent: var(--accent-main);
+  --color-accent-strong: var(--accent-strong);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--text-main);
+  font-family: var(--font-body), sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-main);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.surface {
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+    var(--surface-1);
+  box-shadow: var(--shadow-surface);
+}
+
+.surface-soft {
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    var(--surface-2);
+  box-shadow: var(--shadow-surface);
+}
+
+.surface-strong {
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+    var(--surface-3);
+  box-shadow: var(--shadow-surface);
+}
+
+.hero-frame {
+  border: 1px solid var(--border-strong);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, rgba(201, 164, 99, 0.12), transparent 35%),
+    var(--surface-2);
+  box-shadow: var(--shadow-surface);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 164, 99, 0.45),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
