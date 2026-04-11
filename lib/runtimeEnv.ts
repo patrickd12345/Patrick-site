@@ -3,8 +3,11 @@ type EnvSource = NodeJS.ProcessEnv;
 function readFirst(env: EnvSource, keys: string[], fallback = ''): string {
   for (const key of keys) {
     const value = env[key];
-    if (typeof value === 'string' && value.trim()) {
-      return value.trim();
+    if (typeof value === 'string') {
+      const trimmed = value.trim();
+      if (trimmed) {
+        return trimmed;
+      }
     }
   }
   return fallback;
