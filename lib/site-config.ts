@@ -1,4 +1,4 @@
-import { resolvePatrickSiteRuntimeEnv } from "./runtimeEnv";
+import { resolvePatrickSiteRuntimeEnv } from "./runtimeEnv.ts";
 
 const runtime = resolvePatrickSiteRuntimeEnv();
 

@@ -7,7 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test --experimental-strip-types components/ui/__tests__/*.test.ts"
+    "test": "node --test --experimental-strip-types components/ui/__tests__/*.test.ts app/__tests__/*.test.ts"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
