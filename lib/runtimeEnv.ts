@@ -1,3 +1,5 @@
+import { isValidUrlProtocol, ensureSafeUrl } from "./url-validation.ts";
+
 type EnvSource = NodeJS.ProcessEnv;
 
 function readFirst(env: EnvSource, keys: string[], fallback = ''): string {
@@ -21,15 +23,30 @@ export type PatrickSiteRuntimeEnv = {
   hasCustomLinkedIn: boolean;
 };
 
-export function resolvePatrickSiteRuntimeEnv(env: EnvSource = process.env): PatrickSiteRuntimeEnv {
-  const customContactEmail = readFirst(env, ['NEXT_PUBLIC_CONTACT_EMAIL']);
-  const customLinkedIn = readFirst(env, ['NEXT_PUBLIC_LINKEDIN_URL']);
+export function resolvePatrickSiteRuntimeEnv(
+  env: EnvSource = process.env,
+): PatrickSiteRuntimeEnv {
+  const customContactEmail = readFirst(env, ["NEXT_PUBLIC_CONTACT_EMAIL"]);
+  const customLinkedIn = readFirst(env, ["NEXT_PUBLIC_LINKEDIN_URL"]);
+
+  const defaultSiteUrl = "https://patrickduchesneau.com";
+  const defaultLinkedIn = "https://www.linkedin.com/in/patrickduchesneau";
+
+  const siteUrl = ensureSafeUrl(
+    readFirst(env, ["NEXT_PUBLIC_SITE_URL"], defaultSiteUrl),
+    defaultSiteUrl,
+  );
+
+  const linkedInUrl = ensureSafeUrl(
+    customLinkedIn || defaultLinkedIn,
+    defaultLinkedIn,
+  );
 
   return {
-    siteUrl: readFirst(env, ['NEXT_PUBLIC_SITE_URL'], 'https://patrickduchesneau.com'),
-    contactEmail: customContactEmail || 'hello@patrickduchesneau.com',
-    linkedInUrl: customLinkedIn || 'https://www.linkedin.com/in/patrickduchesneau',
+    siteUrl,
+    contactEmail: customContactEmail || "hello@patrickduchesneau.com",
+    linkedInUrl,
     hasCustomContactEmail: Boolean(customContactEmail),
-    hasCustomLinkedIn: Boolean(customLinkedIn),
+    hasCustomLinkedIn: Boolean(customLinkedIn) && isValidUrlProtocol(customLinkedIn),
   };
 }
