@@ -21,14 +21,12 @@ export default function Home() {
       <Section className="pt-14 md:pt-20">
         <div className="hero-frame grid gap-8 p-7 md:grid-cols-[1.2fr_0.8fr] md:p-10">
           <Reveal>
-            <p className="eyebrow">Founder-Level Technical Operator</p>
+            <p className="eyebrow">Software Architect & Technical Leader</p>
             <h1 className="mt-4 max-w-2xl text-balance text-4xl leading-tight font-semibold md:text-6xl">
-              I architect deterministic products that survive production.
+              I build robust, production-ready software platforms.
             </h1>
             <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted md:text-lg">
-              I build across product, architecture, and execution: from data
-              model governance to shipped interfaces. Bookiji, Kinetix, and
-              MyAssist are built as real systems, not demo narratives.
+              I lead product architecture and engineering execution from initial concept to shipped interfaces. Across Bookiji, Kinetix, and MyAssist, I've delivered scalable, reliable systems focused on real-world performance and seamless user experiences.
             </p>
             <CtaCluster
               className="mt-8"
