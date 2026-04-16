@@ -1,14 +1,10 @@
 export function cn(...classes: Array<string | false | null | undefined>): string {
-  let result = "";
+  const result: string[] = [];
   for (let i = 0; i < classes.length; i++) {
     const cls = classes[i];
     if (cls) {
-      if (result) {
-        result += " " + cls;
-      } else {
-        result = cls;
-      }
+      result.push(cls);
     }
   }
-  return result;
+  return result.join(" ");
 }
