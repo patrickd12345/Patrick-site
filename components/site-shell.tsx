@@ -18,9 +18,15 @@ export function SiteShell({ children }: SiteShellProps) {
 
   return (
     <div className="relative min-h-screen">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-surface focus:text-accent focus:font-medium focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+      >
+        Skip to main content
+      </a>
       <header className="sticky top-0 z-40 border-b border-subtle bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 md:px-10">
-          <Link href="/" className="group">
+          <Link href="/" className="group rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background">
             <p className="font-mono text-[11px] tracking-[0.18em] text-muted uppercase">
               Patrick Duchesneau
             </p>
@@ -31,7 +37,7 @@ export function SiteShell({ children }: SiteShellProps) {
 
           <button
             type="button"
-            className="rounded-lg border border-subtle px-3 py-1.5 text-sm text-foreground md:hidden"
+            className="rounded-lg border border-subtle px-3 py-1.5 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hidden"
             onClick={() => setIsOpen((current) => !current)}
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
@@ -50,7 +56,7 @@ export function SiteShell({ children }: SiteShellProps) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-3 py-1.5 text-sm transition-colors",
+                    "rounded-full px-3 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                     isActive
                       ? "bg-surface text-accent"
                       : "text-muted hover:text-foreground",
@@ -72,7 +78,7 @@ export function SiteShell({ children }: SiteShellProps) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-lg border border-subtle px-3 py-2 text-sm text-muted transition-colors hover:text-foreground"
+                className="rounded-lg border border-subtle px-3 py-2 text-sm text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {item.label}
               </Link>
@@ -81,7 +87,7 @@ export function SiteShell({ children }: SiteShellProps) {
         ) : null}
       </header>
 
-      <main className="relative z-10">{children}</main>
+      <main id="main-content" className="relative z-10">{children}</main>
 
       <footer className="mt-20 border-t border-subtle">
         <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 py-10 md:grid-cols-2 md:px-10">
