@@ -40,40 +40,44 @@ export function ContactForm({ email }: ContactFormProps) {
       </p>
 
       <div className="mt-5 grid gap-4">
-        <label className="grid gap-1.5 text-sm">
+        <label htmlFor="name" className="grid gap-1.5 text-sm">
           <span className="text-muted">Name</span>
           <input
+            id="name"
             required
             name="name"
             autoComplete="name"
-            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent"
+            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
           />
         </label>
-        <label className="grid gap-1.5 text-sm">
+        <label htmlFor="senderEmail" className="grid gap-1.5 text-sm">
           <span className="text-muted">Email</span>
           <input
+            id="senderEmail"
             required
             type="email"
             name="senderEmail"
             autoComplete="email"
-            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent"
+            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
           />
         </label>
-        <label className="grid gap-1.5 text-sm">
+        <label htmlFor="subject" className="grid gap-1.5 text-sm">
           <span className="text-muted">Subject</span>
           <input
+            id="subject"
             required
             name="subject"
-            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent"
+            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
           />
         </label>
-        <label className="grid gap-1.5 text-sm">
+        <label htmlFor="message" className="grid gap-1.5 text-sm">
           <span className="text-muted">Message</span>
           <textarea
+            id="message"
             required
             name="message"
             rows={6}
-            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent"
+            className="rounded-xl border border-subtle bg-surface px-3 py-2 outline-none transition-colors focus:border-accent focus-visible:ring-2 focus-visible:ring-accent"
           />
         </label>
       </div>
@@ -81,9 +85,10 @@ export function ContactForm({ email }: ContactFormProps) {
       <div className="mt-5 flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          className="rounded-full border border-accent bg-accent px-5 py-2.5 text-sm font-medium text-[var(--color-bg)] transition-colors hover:bg-accent-strong"
+          disabled={status === "sent"}
+          className="rounded-full border border-accent bg-accent px-5 py-2.5 text-sm font-medium text-[var(--color-bg)] transition-colors hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-70"
         >
-          Compose Email
+          {status === "sent" ? "Draft Opened" : "Compose Email"}
         </button>
         {status === "sent" ? (
           <p className="text-sm text-muted">Email draft opened in your client.</p>
