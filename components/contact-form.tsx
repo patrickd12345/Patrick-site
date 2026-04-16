@@ -14,10 +14,10 @@ export function ContactForm({ email }: ContactFormProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const name = String(formData.get("name") ?? "").trim();
-    const senderEmail = String(formData.get("senderEmail") ?? "").trim();
-    const subject = String(formData.get("subject") ?? "").trim();
-    const message = String(formData.get("message") ?? "").trim();
+    const name = formData.get("name")?.toString().trim() ?? "";
+    const senderEmail = formData.get("senderEmail")?.toString().trim() ?? "";
+    const subject = formData.get("subject")?.toString().trim() ?? "";
+    const message = formData.get("message")?.toString().trim() ?? "";
 
     const body = [
       `Name: ${name}`,
