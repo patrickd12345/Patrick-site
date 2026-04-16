@@ -52,7 +52,7 @@ export default function ContactPage() {
                   className="mt-1 inline-block transition-colors hover:text-accent"
                   href={siteConfig.linkedInUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   {siteConfig.linkedInUrl}
                 </a>
