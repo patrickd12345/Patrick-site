@@ -42,6 +42,21 @@ npm run lint
 npm run build
 ```
 
+## Vercel Deployment
+
+- Team: `patrick-duchesneaus-projects`
+- Project (single source of truth): `v0-personal-site`
+- Production domain: `https://pduchesneau.bookiji.com`
+- Root Directory strategy: repository root (this is a single-package app; do not create a second Vercel project for an app subfolder)
+
+### Required Vercel Environment Variables
+
+- `NEXT_PUBLIC_SITE_URL=https://pduchesneau.bookiji.com`
+- `NEXT_PUBLIC_CONTACT_EMAIL=hello@patrickduchesneau.com`
+- `NEXT_PUBLIC_LINKEDIN_URL=https://www.linkedin.com/in/patrickduchesneau`
+
+Set these for `Production` and `Preview`, then redeploy production.
+
 ## Routes
 
 - `/`
