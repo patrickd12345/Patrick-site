@@ -1,12 +1,31 @@
 import type {
   CaseStudy,
-  NavItem,
   ProofItem,
-  ResumeItem,
-  SkillGroup,
   Venture,
-  WorkPrinciple,
 } from "@/lib/types";
+
+type NavItem = {
+  href: string;
+  label: string;
+};
+
+type WorkPrinciple = {
+  title: string;
+  description: string;
+};
+
+type ResumeItem = {
+  role: string;
+  org: string;
+  period: string;
+  summary: string;
+  focusAreas: string[];
+};
+
+type SkillGroup = {
+  title: string;
+  items: string[];
+};
 
 export const navItems: NavItem[] = [
   { href: "/", label: "Home" },

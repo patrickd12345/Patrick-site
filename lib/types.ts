@@ -1,8 +1,3 @@
-export type NavItem = {
-  href: string;
-  label: string;
-};
-
 export type ProofItem = {
   label: string;
   value: string;
@@ -31,22 +26,4 @@ export type CaseStudy = {
   implementationChoices: string[];
   credibilitySignals: string[];
   maturityLevel: string;
-};
-
-export type WorkPrinciple = {
-  title: string;
-  description: string;
-};
-
-export type ResumeItem = {
-  role: string;
-  org: string;
-  period: string;
-  summary: string;
-  focusAreas: string[];
-};
-
-export type SkillGroup = {
-  title: string;
-  items: string[];
 };
