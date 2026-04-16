@@ -24,7 +24,7 @@ const nameStyle: CSSProperties = {
   fontSize: 20,
   letterSpacing: "0.2em",
   textTransform: "uppercase",
-  color: "#c9a463",
+  color: "#00e5ff",
 };
 
 const contentWrapperStyle: CSSProperties = {
@@ -52,11 +52,10 @@ export default function OpenGraphImage() {
         <div style={nameStyle}>Patrick Duchesneau</div>
         <div style={contentWrapperStyle}>
           <div style={headlineStyle}>
-            Founder-builder shipping deterministic product systems.
+            Building robust, production-ready software platforms.
           </div>
           <div style={descriptionStyle}>
-            Architecture, product, and execution across Bookiji, Kinetix, and
-            MyAssist.
+            Scalable, reliable systems focused on real-world performance.
           </div>
         </div>
       </div>

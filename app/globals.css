@@ -9,8 +9,8 @@
   --border-soft: #202632;
   --text-main: #e8edf4;
   --text-muted: #98a2b3;
-  --accent-main: #c9a463;
-  --accent-strong: #ddba79;
+  --accent-main: #00e5ff;
+  --accent-strong: #33eaff;
   --shadow-surface: 0 24px 60px rgba(2, 6, 12, 0.35);
 }
 
@@ -100,7 +100,7 @@ h4 {
 .hero-frame {
   border: 1px solid var(--border-strong);
   border-radius: 1.25rem;
-  background: linear-gradient(145deg, rgba(201, 164, 99, 0.12), transparent 35%),
+  background: linear-gradient(145deg, rgba(0, 229, 255, 0.12), transparent 35%),
     var(--surface-2);
   box-shadow: var(--shadow-surface);
 }
@@ -110,7 +110,7 @@ h4 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(201, 164, 99, 0.45),
+    rgba(0, 229, 255, 0.45),
     transparent
   );
 }
