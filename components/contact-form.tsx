@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { isValidMailtoUrl } from "../lib/url-validation.ts";
 
 type ContactFormProps = {
   email: string;
@@ -27,8 +28,13 @@ export function ContactForm({ email }: ContactFormProps) {
     ].join("\n");
 
     const href = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject || "Project Inquiry")}&body=${encodeURIComponent(body)}`;
-    window.location.href = href;
-    setStatus("sent");
+
+    if (isValidMailtoUrl(href)) {
+      window.location.href = href;
+      setStatus("sent");
+    } else {
+      console.error("Invalid contact link generated.");
+    }
   }
 
   return (

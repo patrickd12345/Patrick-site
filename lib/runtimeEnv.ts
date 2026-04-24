@@ -1,4 +1,4 @@
-import { isValidUrlProtocol, ensureSafeUrl } from "./url-validation.ts";
+import { isValidUrlProtocol, ensureSafeUrl, isValidEmail } from "./url-validation.ts";
 
 type EnvSource = NodeJS.ProcessEnv;
 
@@ -42,11 +42,16 @@ export function resolvePatrickSiteRuntimeEnv(
     defaultLinkedIn,
   );
 
+  const defaultContactEmail = "hello@patrickduchesneau.com";
+  const contactEmail = isValidEmail(customContactEmail)
+    ? customContactEmail
+    : defaultContactEmail;
+
   return {
     siteUrl,
-    contactEmail: customContactEmail || "hello@patrickduchesneau.com",
+    contactEmail,
     linkedInUrl,
-    hasCustomContactEmail: Boolean(customContactEmail),
+    hasCustomContactEmail: Boolean(customContactEmail) && isValidEmail(customContactEmail),
     hasCustomLinkedIn: Boolean(customLinkedIn) && isValidUrlProtocol(customLinkedIn),
   };
 }

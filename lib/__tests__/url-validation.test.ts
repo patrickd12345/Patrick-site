@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert";
-import { isValidUrlProtocol, ensureSafeUrl } from "../url-validation.ts";
+import { isValidUrlProtocol, isValidMailtoUrl, ensureSafeUrl } from "../url-validation.ts";
 
 test("isValidUrlProtocol - valid http", () => {
   assert.strictEqual(isValidUrlProtocol("http://example.com"), true);
@@ -47,4 +47,20 @@ test("ensureSafeUrl - returns fallback if unsafe", () => {
   const unsafeUrl = "javascript:alert(1)";
   const fallback = "https://linkedin.com/in/patrick";
   assert.strictEqual(ensureSafeUrl(unsafeUrl, fallback), fallback);
+});
+
+test("isValidMailtoUrl - valid mailto", () => {
+  assert.strictEqual(isValidMailtoUrl("mailto:hello@example.com"), true);
+});
+
+test("isValidMailtoUrl - valid mailto with subject and body", () => {
+  assert.strictEqual(isValidMailtoUrl("mailto:hello@example.com?subject=hi&body=there"), true);
+});
+
+test("isValidMailtoUrl - invalid javascript protocol", () => {
+  assert.strictEqual(isValidMailtoUrl("javascript:alert(1)"), false);
+});
+
+test("isValidMailtoUrl - case insensitive", () => {
+  assert.strictEqual(isValidMailtoUrl("MAILTO:HELLO@EXAMPLE.COM"), true);
 });
